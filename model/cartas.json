@@ -1,0 +1,57 @@
+[   
+   {
+      "id":1,
+	  "imagen":"..\/images\/java.png"
+      
+   },
+   {
+      "id":2,
+      "imagen":"..\/images\/angular.png"
+   },
+
+   {
+      "id":3,
+      "imagen":"..\/images\/js.png"
+   }
+   ,
+
+   {
+      "id":4,
+      "imagen":"..\/images\/python.png"
+   }
+   ,
+
+   {
+      "id":5,
+      "imagen":"..\/images\/joomla.png"
+   }
+   ,
+
+   {
+      "id":6,
+      "imagen":"..\/images\/postgres.png"
+   }
+   ,
+
+   {
+      "id":7,
+      "imagen":"..\/images\/visual.png"
+   },
+
+   
+   {
+      "id":8,
+      "imagen":"..\/images\/git.png"
+   },
+   
+   {
+      "id":9,
+      "imagen":"..\/images\/jenkins.png"
+   },
+   
+   {
+      "id":10,
+      "imagen":"..\/images\/boostrap.png"
+   }
+   
+]

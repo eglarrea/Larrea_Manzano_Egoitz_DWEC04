@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-------------Tarea evaluativa 03---------------------->
+<!-------------Egoitz Larrea----------------------
+const queryString = window.location.search;const urlParams = new URLSearchParams(queryString);
+urlParams.get('id')-->
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <!------------- TITULO DE LA PAGINA ---------------------->
+        <title>Tarea Evaluativa DWEC04</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" >
+        <link href="../css/main.css" rel="stylesheet" >
+        </style>
+    </head>
+
+    <body>
+      <main>
+        <div class="d-flex align-items-center justify-content-center vh-100">
+          <div class="text-center">
+              <h1 class="display-1 fw-bold">404</h1>
+              <p class="fs-3"> <span class="text-danger">Opps!</span> Evento no existe.</p>
+              <p class="lead">
+                  El detalle de evento no existe.
+                </p>
+              <a href="../index.html" class="btn btn-primary">Inicio</a>
+          </div>
+      </div>
+      
+      </main>
+      <!--------------- Modal confirmacion nuevo tablero --------------->
+      <footer class="text-body-secondary py-5">
+        <div class="container">
+          <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
+          <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>
+        </div>
+      </footer>
+    </body>
+      
+      <!-------------LAMADA SCRIPTS---------------------->
+      <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+      <script type="text/javascript" src="../js/jquery.cookie.min.js"></script>
+      <script src="../js/bootstrap.bundle.min.js" ></script>
+</html>

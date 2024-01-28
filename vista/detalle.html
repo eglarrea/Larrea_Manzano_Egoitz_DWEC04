@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-------------Tarea evaluativa 03---------------------->
+<!-------------Egoitz Larrea------------------------>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <!------------- TITULO DE LA PAGINA ---------------------->
+        <title>Tarea Evaluativa DWEC04</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" >
+        <link href="../css/main.css" rel="stylesheet" >
+        </style>
+    </head>
+
+    <body>
+      <header data-bs-theme="dark">
+        <div class="collapse text-bg-dark" id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4>About</h4>
+                <p class="text-body-secondary">Ejercicio para asignatura DAW para el uso de apis. Se obtien los eventos del api de opendata euskadi (Kulturklik)</p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4>Contacto</h4>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="text-white">Egoitz Larrea</a></li>
+                  <li><a href="#" class="text-white">Birt</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+          <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              <strong>Gure kultur ekitaldiak</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!--------------- Cabecera del juego --------------->
+      <main>
+        <div  class="container-fluid" >
+          <div id="spiner" class="d-flex align-items-center justify-content-center vh-100">
+            <div class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <section  class="py-2 text-start container">
+            <div class="row">
+              <a class="btn btn-primary col-1" href="../index.html">Volver</a>
+            </div> 
+          </section>
+
+          <section id="detalle" class="py-3 text-center container d-none">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-info-box mt-0">
+                        <h4 id="tituloEvento">DETALLE DEL EVENTO</h4>
+                        <h5 clas="mt-3">DETALLE DEL EVENTO</h5>
+                        <p class="mb-0"><span id="descripcion">Sin detalle del evento</span></p>
+                    </div><!-- / project-info-box -->
+        
+                    <div class="project-info-box">
+                        <p><b>Tipo:</b> <span id="tipoEvento">Sin información</span></p>
+                        <p><b>Municipio:</b><span id="municipio">Sin información</span></p>
+                        <p><b>Fecha:</b> <span id="fecha">Sin información</span></p>
+                        <p><b>Donde:</b> <span id="donde">Sin información</span></p>
+                        <p><b>Entradas:</b> <span id="entradas"></span></p>
+                        <p class="mb-0"><b>Precio:</b> <span class="badge bg-secondary " id="precio">Sin información</span></p>
+                      
+                    </div><!-- / project-info-box -->
+                </div>
+        
+                <div class="col-md-6">
+                    <img src="https://www.bootdey.com/image/400x300/FFB6C1/000000" id="imagen" alt="project-image" class="rounded">
+                    <div class="project-info-box">
+                      <p id="compania"></p>
+                      <p><b>Url del evento:</b><span id="urlEvento"></span></p>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+      <!--------------- Modal confirmacion nuevo tablero --------------->
+      <footer class="text-body-secondary py-5">
+        <div class="container">
+          <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
+          <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>
+        </div>
+      </footer>
+
+      <!-------------LAMADA SCRIPTS---------------------->
+      <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+      <script type="text/javascript" src="../js/jquery.cookie.min.js"></script>
+      <script src="../js/bootstrap.bundle.min.js" ></script>
+      <script src="../js/detalle.js" ></script>
+    </body>
+</html>
