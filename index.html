@@ -18,9 +18,6 @@
 
 </head>
   <body>
-    
-
-    
     <header data-bs-theme="dark">
       <div class="collapse text-bg-dark" id="navbarHeader">
         <div class="container">
@@ -53,7 +50,6 @@
     </header>
 
     <main>
-
       <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
@@ -92,17 +88,15 @@
               </div>
             </div>
           </div>
-            <div id="listaEventos" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 d-none">
-            </div>
 
-        
+          <!--Lista donde se muestran los eventos-->
+          <div id="listaEventos" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 d-none">
+          </div>
+
+          <!--Paginacion-->
           <div id="divpagination" class="d-flex align-items-center justify-content-center mt-5 d-none">
             <nav ><ul id="pagination"></ul></nav>
           </div>
-          <!--<div class="">
-            <nav ><ul id="light-pagination"  class="pagination"></ul></nav>
-          
-        </div>-->
       </div>
 
     </main>
@@ -116,21 +110,5 @@
         <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>
       </div>
     </footer>
-   <!-- <div class="">
-			<nav ><ul id="light-pagination"  class="pagination"></ul></nav>-->
-	
   </body>
-  <script>
-
-/*$(function() {
-    $("#pagination").pagination({
-        items: 100,
-        itemsOnPage: 10,
-        edges:1,
-        prevText:"Anterior",
-        nextText:"Siguiente",
-        cssStyle: 'light-theme'
-    });
-});*/
-  </script>
-</html>
+ </html>

@@ -1,25 +1,22 @@
 'use strict'
-// Funcion para agretar ficheros js 
 
 console.log('Empieza el programa')
-//const now = new Date();
+
+//Variables globales
 var session="";
 var agendaEventos={
   paginaAct:1,
   totalPages:0,
   tipoEvento:'',
   municipio:''
-  //,
-  //anoFiltro:now.getFullYear(),
-  //mesFiltro:now.getMonth()+1,
-  //diaFiltro:now.getDate()
 } ;
 
-
+// Obtiene los tipos de evento
 function cargarComboTipoEventos(){
   return fetch('https://api.euskadi.eus/culture/events/v1.0/eventType');
 }
 
+// Obtiene los municipios y carga en el combo
 function cargarComboMunicipios(){
     $.ajax({url: "https://api.euskadi.eus/culture/events/v1.0/municipalities", 
       data:{_elements:300,_page:1},
