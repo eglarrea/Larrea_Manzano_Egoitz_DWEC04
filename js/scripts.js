@@ -18,14 +18,21 @@ function cargarComboTipoEventos(){
 
 // Obtiene los municipios y carga en el combo
 function cargarComboMunicipios(){
-    $.ajax({url: "https://api.euskadi.eus/culture/events/v1.0/municipalities", 
+    $.ajax({
+      url: "https://api.euskadi.eus/culture/events/v1.0/municipalities", 
       data:{_elements:300,_page:1},
 	    success: function(result){
         console.log(result);
         for(var i=0;i<result.items.length;i++){
           $("#municipios").append("<option value='"+result.items[i].municipalityId+"'>"+result.items[i].nameEs+"</option>");
         }
-    }});
+      },
+      
+      error: function (xhr, ajaxOptions, thrownError) {
+        $("#municipios").addClass(" border-danger text-danger")
+        $('#municipios option:contains("Selecciona municipio...")').text('Error en la carga');
+      }
+  });
   }
 
   function limpiarPantallaYactivarSpinner(){
@@ -138,11 +145,19 @@ $(document).ready(function(){
     $.cookie("eventos", true); 
   }
 
-  cargarComboTipoEventos().then(response => response.json()).then(eventos=>{
-    for(var i=0;i<eventos.length;i++){
-      $("#tipoEventos").append("<option value='"+eventos[i].id+"'>"+eventos[i].nameEs+"</option>");
-    }
-    $("#tipoEventos").val(agendaEventos.tipoEvento).change();
+  cargarComboTipoEventos().then(response => { if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Se ha producido un error al obtener los tipos de evento');
+      }).then(eventos=>{
+          for(var i=0;i<eventos.length;i++){
+            $("#tipoEventos").append("<option value='"+eventos[i].id+"'>"+eventos[i].nameEs+"</option>");
+          }
+          $("#tipoEventos").val(agendaEventos.tipoEvento).change();
+      }).catch((error)=> {
+        $("#tipoEventos").addClass(" border-danger text-danger")
+        $('#tipoEventos option:contains("Selecciona tipo Evento...")').text('Error en la carga');
+         console.log(error);
   });  
 
   cargarComboMunicipios();
