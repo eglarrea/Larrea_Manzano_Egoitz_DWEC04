@@ -30,14 +30,14 @@ function obtenerEvento(){
       if(response.hasOwnProperty('purchaseUrlEs')){
         $('#entradas').append('<a  target="_blank" href="'+response.purchaseUrlEs+'" > Comprar </a>');
       }else{
-        $('#entradas').text("No link para la comprar");
+        $('#entradas').text("No hay link para la comprar");
       }
 
      
       if(response.hasOwnProperty('sourceUrlEs')){
         $('#urlEvento').append('<a target="_blank" href="'+response.sourceUrlEs+'" > Ver el evento </a>');
       }else{
-        $('#urlEvento').text("No link para la url");
+        $('#urlEvento').text("No hay link para la url del evento");
       }
       
      $('#precio').text(response.priceEs);
