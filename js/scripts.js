@@ -26,6 +26,7 @@ function cargarComboMunicipios(){
         for(var i=0;i<result.items.length;i++){
           $("#municipios").append("<option value='"+result.items[i].municipalityId+"'>"+result.items[i].nameEs+"</option>");
         }
+        $("#municipios").val(agendaEventos.municipio).change();
       },
       
       error: function (xhr, ajaxOptions, thrownError) {
