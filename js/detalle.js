@@ -16,6 +16,14 @@ function obtenerEvento(){
 
       const d = new Date(response.startDate);
       $('#fecha').text(d.getDate()+"/"+d.getMonth()+1+"/"+d.getFullYear());
+
+      
+      
+      if(response.hasOwnProperty('openingHoursEs')){
+        $('#hora').text(response.openingHoursEs);
+      
+      }
+
       if(response.hasOwnProperty('descriptionEs')){
         $('#descripcion').html(response.descripcionEs);
       }else{
