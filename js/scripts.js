@@ -31,12 +31,15 @@ function cargarComboMunicipios(){
   function limpiarPantallaYactivarSpinner(){
     var tableroHtml = document.getElementById("listaEventos");
     tableroHtml.innerHTML ='';
+    $( "#buscar" ).prop("disabled", true);
     $( "#spiner" ).removeClass( "d-none" );
     $( "#listaEventos" ).addClass( "d-none" );
     $( "#divpagination" ).addClass( "d-none" );
   }
 
   function mostrarPantallaYdesactivarSpinner(){
+    
+    $( "#buscar" ).prop("disabled", false);
     $( "#spiner" ).addClass( "d-none" );
     $( "#listaEventos" ).removeClass( "d-none" );
   }
