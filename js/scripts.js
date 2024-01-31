@@ -125,9 +125,17 @@ function pintarEvento(evento){
   }
   let fechaActual = new Date(evento.endDate);
   let opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-  tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+evento.nameEs+'" alt="'+evento.nameEs+'" src="'+urlImagen+'"><div class="card-body"><small class="text-body-secondary">'+evento.typeEs+'</small><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><small class="text-body-secondary p-2">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</small></div></div></div></div>';
+  let tituloEvento= evento.nameEs.replace(/['"]+/g, '\'');
+  
+  tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+tituloEvento+'" alt="'+tituloEvento+'" src="'+urlImagen+'"><div class="card-body"><small class="text-body-secondary">'+evento.typeEs+'</small><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><small class="text-body-secondary p-2">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</small></div></div></div></div>';
 }
-
+function HtmlEncode(s)
+{
+  var el = document.createElement("div");
+  el.innerText = el.textContent = s;
+  s = el.innerHTML;
+  return s;
+}
 
 
 // ------------------- MAIN ------------------------
