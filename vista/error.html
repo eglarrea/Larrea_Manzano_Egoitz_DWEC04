@@ -4,11 +4,11 @@
 const queryString = window.location.search;const urlParams = new URLSearchParams(queryString);
 urlParams.get('id')-->
 <html lang="es">
-
+   <link rel="shortcut icon" href="../images/logo.ico" />
     <head>
         <meta charset="utf-8">
         <!------------- TITULO DE LA PAGINA ---------------------->
-        <title>Tarea Evaluativa DWEC04</title>
+        <title>Ekitaldiak Euskal Herrian</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet" >
         <link href="../css/main.css" rel="stylesheet" >
         </style>
@@ -16,11 +16,11 @@ urlParams.get('id')-->
 
     <body>
       <main>
-        <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="d-flex align-items-center justify-content-center vh-100  bg-dark">
           <div class="text-center">
-              <h1 class="display-1 fw-bold">404</h1>
-              <p class="fs-3"> <span class="text-danger">Opps!</span> Evento no existe.</p>
-              <p class="lead">
+              <h1 class="display-1 fw-bold text-light">404</h1>
+              <p class="fs-3"> <span class="text-light">Opps!</span> Evento no existe.</p>
+              <p class="lead text-light">
                   El detalle de evento no existe.
                 </p>
               <a href="../index.html" class="btn btn-primary">Inicio</a>
@@ -32,7 +32,9 @@ urlParams.get('id')-->
       <footer class="text-body-secondary py-5">
         <div class="container">
           <p class="float-end mb-1">
-            <a href="#">Back to top</a>
+            <a href="#">
+              <img alt="Subir" title ="Subir" src="../images/subir.png" style="width: 40px;">
+           </a>
           </p>
           <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
           <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>

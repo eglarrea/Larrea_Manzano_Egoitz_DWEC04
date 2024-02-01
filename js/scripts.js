@@ -8,7 +8,8 @@ var agendaEventos={
   paginaAct:1,
   totalPages:0,
   tipoEvento:'',
-  municipio:''
+  municipio:'',
+  textoEvento:''
 } ;
 
 // Obtiene los tipos de evento
@@ -36,6 +37,7 @@ function cargarComboMunicipios(){
   });
   }
 
+
   function limpiarPantallaYactivarSpinner(){
     var tableroHtml = document.getElementById("listaEventos");
     tableroHtml.innerHTML ='';
@@ -46,7 +48,6 @@ function cargarComboMunicipios(){
   }
 
   function mostrarPantallaYdesactivarSpinner(){
-    
     $( "#buscar" ).prop("disabled", false);
     $( "#spiner" ).addClass( "d-none" );
     $( "#listaEventos" ).removeClass( "d-none" );
@@ -70,10 +71,13 @@ function cargarComboMunicipios(){
     });
   }
 
+  /**
+   * Funcion para realizar la peticion de busqueda de eventos.
+   */
   function realizarPeticionEventos(){
     limpiarPantallaYactivarSpinner()
 
-    $.get("https://api.euskadi.eus/culture/events/v1.0/events/upcoming",{_elements:20,_page:agendaEventos.paginaAct,type:agendaEventos.tipoEvento,municipalityNoraCode:agendaEventos.municipio},
+    $.get("https://api.euskadi.eus/culture/events/v1.0/events/upcoming",{_elements:20,_page:agendaEventos.paginaAct,type:agendaEventos.tipoEvento,municipalityNoraCode:agendaEventos.municipio,description:agendaEventos.textoEvento},
     function(response){
       if(response.items.length>0){
         for (var i=0;i<response.items.length;i++){
@@ -103,7 +107,7 @@ function cargarComboMunicipios(){
       }else{
         var tableroHtml = document.getElementById("listaEventos");
         tableroHtml.innerHTML +='';
-        tableroHtml.innerHTML +='<div class="col-lg-6 col-md-8 mx-auto"><span class="text-danger">Opps!</span><h1 class="fw-light">No existen eventos para esa búsqueda</h1>   </div>';
+        tableroHtml.innerHTML +='<div class="col-lg-6 col-md-8 mx-auto"><span class="text-danger">Opps!</span><h1 class="text-light">No existen eventos para esa búsqueda</h1>   </div>';
       }
       mostrarPantallaYdesactivarSpinner();
       activarPaginacion();
@@ -118,6 +122,7 @@ function cargarComboMunicipios(){
   Funcion para generar el html del evento
 */
 function pintarEvento(evento){
+  console.log(evento);
   var tableroHtml = document.getElementById("listaEventos");
   let urlImagen="./images/evento.jpg";
   if(evento.images.length>0){
@@ -127,14 +132,10 @@ function pintarEvento(evento){
   let opciones = { year: 'numeric', month: 'long', day: 'numeric' };
   let tituloEvento= evento.nameEs.replace(/['"]+/g, '\'');
   
-  tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+tituloEvento+'" alt="'+tituloEvento+'" src="'+urlImagen+'"><div class="card-body"><small class="text-body-secondary">'+evento.typeEs+'</small><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><small class="text-body-secondary p-2">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</small></div></div></div></div>';
-}
-function HtmlEncode(s)
-{
-  var el = document.createElement("div");
-  el.innerText = el.textContent = s;
-  s = el.innerHTML;
-  return s;
+  //tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+tituloEvento+'" alt="'+tituloEvento+'" src="'+urlImagen+'"><div class="card-body"><small class="text-body-secondary">'+evento.typeEs+'</small><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><small class="text-body-secondary p-2">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</small></div></div></div></div>';
+
+  //tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+tituloEvento+'" alt="'+tituloEvento+'" src="'+urlImagen+'"><div class="card-body"><span class="badge bg-secondary">'+evento.typeEs+'</span><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><span class="badge bg-success">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</span></div></div></div></div>';
+  tableroHtml.innerHTML +='<div class="col"><div class="card shadow handPoint rounded-bottom" data-columns="'+evento.id+'"><img class="scale-with-grid rounded-top" title="'+tituloEvento+'" alt="'+tituloEvento+'" src="'+urlImagen+'"><div class="card-body"><span class="badge bg-secondary">'+evento.typeEs+'</span><h2>'+evento.nameEs+'</h2><div class="d-flex justify-content-between align-items-center"><small class="text-body-secondary p-2">'+evento.municipalityEs +' '+fechaActual.toLocaleDateString('es-ES', opciones)+'</small></div></div></div></div>';
 }
 
 
@@ -148,6 +149,7 @@ $(document).ready(function(){
     let filtroEventos=localStorage.getItem("filtroEventos");
     if(null!=filtroEventos){
       agendaEventos=JSON.parse(filtroEventos)
+      $('#textoEvento').val(agendaEventos.textoEvento)
     }
   }else{
     localStorage.removeItem("filtroEventos");
@@ -174,6 +176,7 @@ $(document).ready(function(){
   $( "#buscar" ).on( "click", function() {
         agendaEventos.tipoEvento=$('#tipoEventos').find(":selected").val();
         agendaEventos.municipio=$('#municipios').find(":selected").val();
+        agendaEventos.textoEvento=$('#textoEvento').val();
         agendaEventos.paginaAct=1;
         var tableroHtml = document.getElementById("listaEventos");
         tableroHtml.innerHTML ='';

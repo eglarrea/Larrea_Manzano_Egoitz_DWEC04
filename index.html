@@ -1,9 +1,9 @@
-<html lang="en" data-bs-theme="light"><head>
+<html lang="es" ><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Tarea Evaluativa DWEC04</title>
-
+    <title>Ekitaldiak Euskal Herrian</title>
+    <link rel="shortcut icon" href="./images/logo.ico" />
 
   <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
   <script type="text/javascript" src="./js/jquery.simplePagination.js"></script>
@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4>About</h4>
-              <p class="text-body-secondary">Ejercicio para asignatura DAW para el uso de apis. Se obtien los eventos del api de opendata euskadi (Kulturklik)</p>
+              <p class="text-body-secondary">Cartelera digital para la búsqueda de eventos culturales en Euskal Herria. Los eventos se obtienen del api de opendata euskadi (Kulturklik)</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4>Contacto</h4>
@@ -40,7 +40,7 @@
         <div class="container">
           <a href="#" class="navbar-brand d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>Gure kultur ekitaldiak</strong>
+            <strong>Ekitaldiak Euskal Herrian</strong>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
       <section class="py-3 text-center container">
         <div class="row py-lg-3">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Euskal Herriko kultur ekitaldiak</h1>
+            <h1 class="fw-light">Ekitaldiak Euskal Herrian</h1>
             <p class="lead text-body-secondary">Eventos culturales en Euskal Herria.</p>
           </div>
         </div>
@@ -71,19 +71,25 @@
                 <option value="" selected>Selecciona municipio...</option>
               </select>
             </div>
+            <div class="col">
+              <input id="textoEvento" class="form-control" type="text" placeholder="Texto del evento" aria-label="default input example">
+            </div>
             <div class="col ">
-              <button id="buscar" type="button" class="btn btn-primary">Buscar</button>
+              <!--<button id="buscar" type="button" class="btn btn-primary" disabled>Buscar</button>-->
+              <button id="buscar" type="button" class="border-0" disabled>
+                <img alt="Buscar" title="Buscar" src="./images/busqueda.png" style="width: 40px;">
+              </button>
             </div>
           </div>
          
         </form>
       </section>
 
-      <div class="album py-5 bg-body-tertiary">
+      <div class="album py-5 bg-dark">
         <div class="container">
           <div id="spiner" class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center">
-              <div class="spinner-border" role="status">
+              <div class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
             </div>
@@ -97,14 +103,17 @@
           <div id="divpagination" class="d-flex align-items-center justify-content-center mt-5 d-none">
             <nav ><ul id="pagination"></ul></nav>
           </div>
+        </div>
       </div>
-
     </main>
 
     <footer class="text-body-secondary py-5">
       <div class="container">
         <p class="float-end mb-1">
-          <a href="#">Subir</a>
+         <!-- <a href="#">Subir</a>-->
+          <a href="#">
+            <img alt="Subir" title ="Subir" src="./images/subir.png" style="width: 40px;">
+         </a>
         </p>
         <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
         <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>

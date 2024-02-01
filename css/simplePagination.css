@@ -44,7 +44,8 @@ span.ellipse.clickable {
 
 .compact-theme a, .compact-theme span {
 	float: left;
-	color: #333;
+	/*color: #333;*/
+	color: #33CCCC;
 	font-size:14px;
 	line-height:24px;
 	font-weight: normal;
@@ -131,14 +132,18 @@ span.ellipse.clickable {
 
 .light-theme a:hover, .light-theme li:not(.disabled):not(.active) span:hover {
 	text-decoration: none;
-	background: #FCFCFC;
+	/*background: #FCFCFC;*/
+	background: #33CCCC;
+	
 }
 
 .light-theme .current {
-	background: #666;
+	/*background: #666;*/
+	background: #33CCCC;
 	color: #FFF;
-	border-color: #444;
-	box-shadow: 0 1px 0 rgba(255,255,255,1), 0 0 2px rgba(0, 0, 0, 0.3) inset;
+	/*border-color: #444;*/
+	border-color:#12cfcf;
+	/*box-shadow: 0 1px 0 rgba(255,255,255,1), 0 0 2px rgba(51, 204, 204, 0.3) inset;*/
 	cursor: default;
 }
 

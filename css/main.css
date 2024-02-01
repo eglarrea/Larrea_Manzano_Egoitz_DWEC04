@@ -418,3 +418,16 @@ b, strong {
   --escala: 0.9;
   cursor:pointer;
 }
+
+.bg-info {
+  --bs-bg-opacity: 1;
+  background-color: rgba(51,204,204,var(--bs-bg-opacity))!important;
+}
+
+.lista{
+list-style: none;
+}
+
+#descripcion{
+  text-align: justify;
+}

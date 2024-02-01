@@ -1,68 +1,81 @@
-<!DOCTYPE html>
-<!-------------Tarea evaluativa 04---------------------->
-<!-------------Egoitz Larrea------------------------>
+<html lang="es" ><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="../images/logo.ico" />
+    <title>Ekitaldiak Euskal Herrian</title>
 
-<html lang="es">
 
-    <head>
-        <meta charset="utf-8">
-        <!------------- TITULO DE LA PAGINA ---------------------->
-        <title>Tarea Evaluativa DWEC04</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet" >
-        <link href="../css/main.css" rel="stylesheet" >
-        </style>
-    </head>
+  <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.simplePagination.js"></script>
+  <script type="text/javascript" src="../js/jquery.cookie.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js" ></script>
+  <script type="text/javascript" src="../js/detalle.js"></script>
 
-    <body>
-      <header data-bs-theme="dark">
-        <div class="collapse text-bg-dark" id="navbarHeader">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4>About</h4>
-                <p class="text-body-secondary">Ejercicio para asignatura DAW para el uso de apis. Se obtien los eventos del api de opendata euskadi (Kulturklik)</p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4>Contacto</h4>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-white">Egoitz Larrea</a></li>
-                  <li><a href="#" class="text-white">Birt</a></li>
-                </ul>
-              </div>
+  <link href="../css/bootstrap.min.css" rel="stylesheet" >
+  <link href="../css/simplePagination.css" rel="stylesheet" >
+  <link href="../css/main.css" rel="stylesheet" >
+
+
+</head>
+  <body>
+    <header data-bs-theme="dark">
+      <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4>About</h4>
+              <p class="text-body-secondary">Cartelera digital para la búsqueda de eventos culturales en Euskal Herria. Los eventos se obtienen del api de opendata euskadi</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4>Contacto</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Egoitz Larrea</a></li>
+                <li><a href="#" class="text-white">Birt</a></li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-          <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-              <strong>Gure kultur ekitaldiak</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="../index.html" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>Ekitaldiak Euskal Herrian</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-3 text-center container">
+        <div class="row py-lg-3">
+          <div class="col d-flex justify-content-start">
+            <!--  <a class="btn btn-primary col-1" href="../index.html">Volver</a>-->
+            <a href="../index.html">
+              <img alt="Volver" title="Volver" src="../images/flecha-izquierda.png" style="width: 60px;">
+           </a>
           </div>
         </div>
-      </header>
+      </section>
+      
 
-      <!--------------- Cabecera del juego --------------->
-      <main>
-        <div  class="container-fluid" >
+      <div class="album py-5 bg-dark">
+        <div class="container">
           <div id="spiner" class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center">
-              <div class="spinner-border" role="status">
+              <div class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
             </div>
           </div>
-          <!--Volver a pagina inicio-->
-          <section  class="py-2 text-start container">
-            <div class="row">
-              <a class="btn btn-primary col-1" href="../index.html">Volver</a>
-            </div> 
-          </section>
-          <!--Ficha del evento -->
-          <section id="detalle" class="py-3 text-center container d-none">
+
+          <!--Lista donde se muestran los eventos-->
+          <div id="detalle" class="py-3 text-center  d-none  bg-dark">
+            <div  class="continer">
             <div class="row">
                 <div class="col-md-6">
                     <div class="project-info-box mt-0">
@@ -78,6 +91,7 @@
                         <p><b>Hora:</b> <span id="hora">Sin información</span></p>
                         
                         <p><b>Donde:</b> <span id="donde">Sin información</span></p>
+                        <p><b>Dirección:</b> <span id="direccion">Sin información</span></p>
                         <p><b>Entradas:</b> <span id="entradas"></span></p>
                         <p class="mb-0"><b>Precio:</b> <span class="badge bg-secondary " id="precio">Sin información</span></p>
                       
@@ -88,28 +102,29 @@
                     <img src="https://www.bootdey.com/image/400x300/FFB6C1/000000" id="imagen" alt="project-image" class="rounded">
                     <div class="project-info-box">
                       <p id="compania"></p>
-                      <p><b>Url del evento:</b><span id="urlEvento"></span></p>
+                      <p><b>Url del evento:</b><span class="m-3" id="urlEvento"></span></p>
                     </div>
                 </div>
             </div>
-          </section>
-        </div>
-      </main>
-      <!--------------- Pie de pagina --------------->
-      <footer class="text-body-secondary py-5">
-        <div class="container">
-          <p class="float-end mb-1">
-            <a href="#">Back to top</a>
-          </p>
-          <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
-          <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>
-        </div>
-      </footer>
+           </div>
+          </div>
 
-      <!-------------LAMADA SCRIPTS---------------------->
-      <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-      <script type="text/javascript" src="../js/jquery.cookie.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js" ></script>
-      <script src="../js/detalle.js" ></script>
-    </body>
-</html>
+          
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-body-secondary py-5">
+      <div class="container">
+        <p class="float-end mb-1">
+         <!-- <a href="#">Subir</a>-->
+          <a href="#">
+            <img alt="Subir" title ="Subir" src="../images/subir.png" style="width: 40px;">
+         </a>
+        </p>
+        <p class="mb-1">Tarea evaluativa 04 by Egoitz Larrea</p>
+        <p class="mb-0">Datos obtenidos del api  <a href="https://opendata.euskadi.eus/api-culture" target="_blank">Opendata Euskadi</a> </p>
+      </div>
+    </footer>
+  </body>
+ </html>
