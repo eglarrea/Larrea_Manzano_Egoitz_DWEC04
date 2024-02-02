@@ -35,7 +35,7 @@ function cargarComboMunicipios(){
         $('#municipios option:contains("Selecciona municipio...")').text('Error en la carga');
       }
   });
-  }
+}
 
 
   function limpiarPantallaYactivarSpinner(){
@@ -172,6 +172,11 @@ $(document).ready(function(){
   });  
 
   cargarComboMunicipios();
+
+  $("#filtro").submit(function(e){
+    e.preventDefault();
+    $( "#buscar" ).trigger( "click" );
+  });
 
   $( "#buscar" ).on( "click", function() {
         agendaEventos.tipoEvento=$('#tipoEventos').find(":selected").val();
